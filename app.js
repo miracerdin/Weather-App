@@ -11,6 +11,14 @@ input.addEventListener("keypress", function (event) {
     button.click();
   }
 });
+
+let lang = "tr";
+document.querySelector(".eng").addEventListener("click", () => {
+  lang = "eng";
+});
+document.querySelector(".tr").addEventListener("click", () => {
+  lang = "tr";
+});
 const getCityWeather = async () => {
   // if (
   //   cities.innerHTML
@@ -20,8 +28,9 @@ const getCityWeather = async () => {
   //   alert("this city has already exist");
   // } else {
   let unitType = "metric";
-  let lang = "tr";
+  // let lang = "tr";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=${key}&units=${unitType}&lang=${lang}`;
+  console.log(url);
   try {
     const response = await fetch(url);
     const weatherInfo = await response.json();
